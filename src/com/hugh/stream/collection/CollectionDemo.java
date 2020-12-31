@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * 流式集合处理demo
@@ -144,6 +145,18 @@ public class CollectionDemo {
         // 用map把流中的用户元素映射成1，然后去sum
         Integer userCount = users.stream().map(user -> 1).reduce(Integer::sum).get();
         System.out.println("userCount ===" + userCount);
+        /**
+         * 原始数据流转Stream<T>    IntStream-->Stream
+         */
+        IntStream intStream = users.stream().mapToInt(User::getAge);
+        intStream.boxed();
 
+        /**
+         * 1-100偶数 有多少个
+         */
+        long count = IntStream.rangeClosed(1, 100)
+                .filter(n -> n % 2 == 0)
+                .count();
+        System.out.println(count);
     }
 }

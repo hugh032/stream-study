@@ -1,11 +1,20 @@
 package com.hugh.stream.model;
 
 public class Trader{
+    /**
+     * 交易员名字
+     */
     private final String name;
+    /**
+     * 工作地点
+     */
     private final String city;
-    public Trader(String n, String c){
+
+    private final Integer sex;
+    public Trader(String n, String c,Integer s){
         this.name = n;
         this.city = c;
+        this.sex = s;
     }
     public String getName(){
         return this.name;
@@ -14,7 +23,16 @@ public class Trader{
         return this.city;
     }
 
-    public String toString(){
-        return "Trader:"+this.name + " in " + this.city;
+    public Integer getSex() {
+        return sex;
+    }
+
+    @Override
+    public String toString() {
+        return "Trader{" +
+                "name='" + name + '\'' +
+                ", city='" + city + '\'' +
+                ", sex=" + sex +
+                '}';
     }
 }
